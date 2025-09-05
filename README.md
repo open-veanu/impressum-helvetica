@@ -16,13 +16,34 @@ playwright install
 
 ## Usage
 
-### Single website
+### As a Python Package
+
+After installation, you can import and use the package in your Python code:
+
+```python
+import asyncio
+from impressum_helvetica.collect_impressum import capture_and_return_impressum_url
+
+# Capture impressum for a single website
+async def main():
+    
+    # Capture and get the impressum URL
+    impressum_url = await capture_and_return_impressum_url("interdiscount.ch")
+    print(f"Found impressum at: {impressum_url}")
+
+# Run the async function
+asyncio.run(main())
+```
+
+### Command Line Interface
+
+#### Single website
 ```bash
 python src/collect_impressum.py digitec.ch
 python src/collect_impressum.py interdiscount.ch
 ```
 
-### Batch processing
+#### Batch processing
 ```bash
 python src/collect_impressum.py
 ```
