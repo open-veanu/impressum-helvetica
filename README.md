@@ -39,15 +39,15 @@ asyncio.run(main())
 
 #### Single website
 ```bash
-python src/collect_impressum.py digitec.ch
-python src/collect_impressum.py interdiscount.ch
+python impressum_helvetica/collect_impressum.py digitec.ch
+python impressum_helvetica/collect_impressum.py interdiscount.ch
 ```
 
 #### Batch processing
 ```bash
-python src/collect_impressum.py
+python impressum_helvetica/collect_impressum.py
 ```
-Processes all hostnames from `src/hostnames.py` that don't have Impressum URLs yet.
+Processes all hostnames from `impressum_helvetica/hostnames.py` that don't have Impressum URLs yet.
 
 ## Examples
 

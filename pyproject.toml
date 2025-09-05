@@ -1,10 +1,10 @@
 [tool.poetry]
 name = "impressum-helvetica"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["alho94 <alexander.horst.ah@gmail.com>"]
 readme = "README.md"
-packages = [{include = "src", from = "."}]
+packages = [{include = "impressum_helvetica", from = "."}]
 
 [tool.poetry.dependencies]
 python = "^3.10"

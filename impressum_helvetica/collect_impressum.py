@@ -7,7 +7,7 @@ Usage:
 
 Examples:
     python collect_impressum.py digitec.ch
-    python collect_impressum.py          # Uses hostnames from src/hostnames.py
+    python collect_impressum.py          # Uses hostnames from impressum_helvetica/hostnames.py
 """
 
 import sys
@@ -66,7 +66,7 @@ MAX_OUT_H = 5000          # final image height cap
 
 # -------------------- Hostname loader --------------------
 
-def load_hostnames_from_file(filepath: str = "./src/hostnames.py") -> list:
+def load_hostnames_from_file(filepath: str = "./impressum_helvetica/hostnames.py") -> list:
     try:
         import importlib.util
         spec = importlib.util.spec_from_file_location("hostnames_module", filepath)
@@ -441,12 +441,12 @@ if __name__ == "__main__":
         print(f"→ Processing single hostname: {hostname}")
         asyncio.run(capture(hostname))
     elif len(sys.argv) == 1:
-        print("→ No hostname provided, loading hostnames from src/hostnames.py...")
+        print("→ No hostname provided, loading hostnames from impressum_helvetica/hostnames.py...")
         hostnames = load_hostnames_from_file()
 
         if not hostnames:
-            print("❌ No hostnames found in src/hostnames.py")
-            print("Please run src/environment.py first to generate the hostnames file.")
+            print("❌ No hostnames found in impressum_helvetica/hostnames.py")
+            print("Please run impressum_helvetica/environment.py first to generate the hostnames file.")
             sys.exit(1)
 
         hostnames_to_process = [entry for entry in hostnames if entry.get("url_to_impressum") is None]
@@ -472,11 +472,11 @@ if __name__ == "__main__":
                     continue
 
             try:
-                with open("./src/hostnames.py", "w") as f:
+                with open("./impressum_helvetica/hostnames.py", "w") as f:
                     py_content = json.dumps(hostnames, indent=2)
                     py_content = re.sub(r":\s*null", ": None", py_content)
                     f.write(f"hostnames = {py_content}\n")
-                print("✅ Updated src/hostnames.py with Impressum URLs.")
+                print("✅ Updated impressum_helvetica/hostnames.py with Impressum URLs.")
             except Exception as e:
                 print(f"❌ Failed to write updated hostnames: {e}")
             print(f"\n✅ Completed processing {len(hostnames)} hostnames")
