@@ -21,6 +21,10 @@ COOKIE_CLICK_WAIT = 1000
 # Cookie consent keywords
 COOKIE_ACCEPT_KEYWORDS = [
     "akzeptieren",     # German
+    "akzeptieren alle", # German
+    "alles akzeptieren", # German
+    "alle akzeptieren", # German
+    "allen zustimmen", # German
     "accept",          # English
     "accept all",      # English
     "accept cookies",  # English
@@ -45,8 +49,9 @@ IMPRESSUM_KEYWORDS = [
     {"term": "mentions legales", "prio": 2},# French (no accent)
     {"term": "notice légale", "prio": 2},   # French (variant)
     {"term": "notice legale", "prio": 2},   # French (no accent)
-    {"term": "about us", "prio": 2},        # English
+    {"term": "kontakt", "prio": 2},        # German
     {"term": "contact", "prio": 2},         # fallback, common legal/contact page
+    {"term": "about us", "prio": 3},        # English
 ]
 
 # File extensions
